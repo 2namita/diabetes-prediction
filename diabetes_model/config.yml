@@ -1,0 +1,48 @@
+# Package Overview
+package_name: diabetes_model
+
+# Data Files
+training_data_file: diabetes_prediction_dataset.csv
+
+# Variables
+# The variable we are attempting to predict (diabetescnt)
+target: diabetes
+
+pipeline_name: diabetes_model
+pipeline_save_file: diabetes__model_output_v
+
+# Features that will go inside processing pipeline
+features:
+  - gender
+  - age
+  - hypertension
+  - heart_disease
+  - smoking_history
+  - HbA1c_level
+  - blood_glucose_level
+
+  
+unused_fields:  # Features to drop before pipeline
+  - bmi
+
+
+# Features names
+
+gender_var: gender
+age_var: age
+hypertension_var: hypertension
+heart_disease_var: heart_disease
+smoking_history_var: smoking_history
+HbA1c_level_var: HbA1c_level
+blood_glucose_level_var: blood_glucose_level
+
+# Set train/test split
+test_size: 0.20
+
+# Set the random seed
+random_state: 42
+
+# Alogrithm parameters
+n_estimators: 100
+max_depth: 10
+k_fold: 5
