@@ -11,8 +11,8 @@ import numpy as np
 import pandas as pd
 from pydantic import BaseModel, ValidationError
 
-from bikeshare_model.config.core import config
-from bikeshare_model.processing.data_manager import pre_pipeline_preparation
+from diabetes_model.config.core import config
+from diabetes_model.processing.data_manager import pre_pipeline_preparation
 
 
 def validate_inputs(*, input_df: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
@@ -34,19 +34,13 @@ def validate_inputs(*, input_df: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[d
 
 
 class DataInputSchema(BaseModel):
-    dteday: Optional[Union[str, datetime]]
-    season: Optional[str]
-    hr: Optional[str]
-    holiday: Optional[str]
-    weekday: Optional[str]
-    workingday: Optional[str]
-    weathersit: Optional[str]
-    temp: Optional[float]
-    atemp: Optional[float]
-    hum: Optional[float]
-    windspeed: Optional[float]
-    yr: Optional[int]
-    mnth: Optional[str]
+    gender: Optional[str]
+    age: Optional[float]
+    hypertension: Optional[int]
+    heart_disease: Optional[int]
+    smoking_history: Optional[str]
+    HbA1c_level: Optional[float]
+    blood_glucose_level: Optional[float]
 
 
 class MultipleDataInputs(BaseModel):

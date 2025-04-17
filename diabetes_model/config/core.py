@@ -11,13 +11,14 @@ from typing import Dict, List
 from pydantic import BaseModel
 from strictyaml import YAML, load
 
-import bikeshare_model
+import diabetes_model
 
 # Project Directories
-PACKAGE_ROOT = Path(bikeshare_model.__file__).resolve().parent
+
+
+PACKAGE_ROOT = Path(diabetes_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
-#print(CONFIG_FILE_PATH)
 
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
@@ -44,32 +45,21 @@ class ModelConfig(BaseModel):
     features: List[str]
     unused_fields: List[str]
     
-    date_var: str
-    yr_var: str
-    mnth_var: str
-    season_var: str
-    hr_var: str
-    holiday_var: str
-    workingday_var: str
-    weekday_var: str
-    weathersit_var: str
-    temp_var: str
-    atemp_var: str
-    hum_var: str
-    windspeed_var: str
-        
-    yr_mappings: Dict[int, int]
-    mnth_mappings: Dict[str, int]
-    season_mappings: Dict[str, int]
-    weathersit_mappings: Dict[str, int]
-    holiday_mappings: Dict[str, int]
-    workingday_mappings: Dict[str, int]
-    hr_mappings: Dict[str, int]
+    gender_var: str
+    age_var: str
+    hypertension_var: str
+    heart_disease_var: str
+    smoking_history_var: str
+    HbA1c_level_var: str
+    blood_glucose_level_var: str
+
     
+          
     test_size:float
     random_state: int
     n_estimators: int
     max_depth: int
+    k_fold: int
 
 
 class Config(BaseModel):
