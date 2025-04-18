@@ -33,6 +33,7 @@ def run_training() -> None:
         random_state=config.model_config_.random_state,   # set the random seed here for reproducibility
     )
 
+    """ Tried the KFold, it did not change the prediction scores so commenting it out
     kfold = KFold(n_splits=config.model_config_.k_fold, shuffle=True, random_state=config.model_config_.random_state)
     # Print the model performance
     # 1️⃣ R² Cross-Validation
@@ -48,6 +49,8 @@ def run_training() -> None:
     print("MSE scores for each fold:", mse_scores)
     print("Average MSE:", np.mean(mse_scores))
 
+    """
+
 
 
     # Pipeline fitting
@@ -62,6 +65,8 @@ def run_training() -> None:
 
     # persist trained model
     save_pipeline(pipeline_to_persist = diabetes_pipe)
-    
+
+
+     
 if __name__ == "__main__":
     run_training()

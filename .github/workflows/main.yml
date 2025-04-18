@@ -27,7 +27,8 @@ jobs:
           make all
     
       - name: Build the Docker image
-        run: docker build --file diabetes_sharing_api/Dockerfile -t diabetes-app .
+        #run: docker build --file diabetes_sharing_api/Dockerfile -t diabetes-app .
+        run: docker build --file DockerfileOut -t diabetes-app .
 
       - name: Push the Image
         run: docker run -d -p 80:8001 diabetes-app
